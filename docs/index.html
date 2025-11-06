@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge - Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 700px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-box h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-box ul {
+            list-style: none;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        .content-box li {
+            padding: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        .content-box li::before {
+            content: "→ ";
+            margin-right: 0.5rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .content-box {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Documentation</h1>
+        <div class="subtitle">Coming Soon</div>
+        <div class="description">
+            Our comprehensive documentation is under construction. Soon you'll find everything you need to get started.
+        </div>
+
+        <div class="content-box">
+            <h2>What to Expect</h2>
+            <ul>
+                <li>API Reference & Guides</li>
+                <li>Code Examples & Tutorials</li>
+                <li>Best Practices</li>
+                <li>Integration Guides</li>
+                <li>FAQs & Troubleshooting</li>
+            </ul>
+        </div>
+
+        <div class="links">
+            <a href="https://www.codingchallenge.ai" class="link">Back to Main Site</a>
+        </div>
+    </div>
+</body>
+</html>
