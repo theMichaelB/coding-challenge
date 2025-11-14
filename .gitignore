@@ -46,8 +46,12 @@ yarn-error.log*
 
 # Build outputs
 dist/
-build/
 *.log
+
+# But keep the build tools directory
+!build/
+!build/*.py
+!build/*.html
 
 # Temporary files
 *.tmp

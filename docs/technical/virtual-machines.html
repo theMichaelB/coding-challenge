@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Machines and Containers</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #fff;
+        }
+
+        article {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #2a2a2a;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #2a2a2a;
+        }
+
+        p {
+            margin: 1rem 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #e0e0e0;
+            margin: 1.5rem 0;
+            padding-left: 1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        section {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        section h3 {
+            margin-top: 0;
+            color: #1a1a1a;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+        <article>
+        <h1>Virtual Machines and Containers</h1>
+<p>When you rent server space from Amazon Web Services, you’re not getting your own physical computer sitting in a warehouse somewhere. You’re getting a slice of a much larger machine—and understanding how that slicing works helps explain two fundamental technologies: virtual machines and containers.</p>
+<h2>The Hardware Reality</h2>
+<p>The largest server you can rent from Amazon will cost you $90,000 a month, it has 896 processors and 1,200 GB of memory. Your laptop might have 4 processors and 16 GB of memory. The gap is enormous, but the real innovation isn’t just the size of these machines. It’s how they can be divided up.</p>
+<h2>Virtual Machines: Multiple Computers on One Machine</h2>
+<p>A technology called virtualization made AWS possible. It allows you to run multiple separate computers on a single piece of hardware by giving each one a “virtual” slice of the CPU and memory.</p>
+<p>Before virtualization, if a business needed a file server, an email server, and a web server, they had to buy three physical machines. But here’s the thing: most servers spend most of their time doing nothing. A file server’s CPU barely works. An email server sits idle between messages.</p>
+<p>Virtualization let companies stack multiple computers onto one piece of hardware. Each was still a completely separate machine, one serving files, another handling email, another running the website. But they all shared the same physical processors and memory underneath.</p>
+<p>The other benefit: it’s all software. No one needs to plug in network cables or power cords. You can manage everything automatically with scripts and timers. Need your payroll system to run for two hours once a month? Set it up once, and it handles itself.</p>
+<p>Amazon took this idea and built it at massive scale. That 896-processor machine? It could become 448 separate computers with 2 processors each, all being created, started, stopped, and destroyed automatically based on what customers needed.</p>
+<h2>The Problem Virtual Machines Solved (And Created)</h2>
+<p>Virtual machines also solved a classic software conflict problem. Sometimes an email server needs version 1 of a database program, but a file server needs version 2. Installing both on the same machine causes chaos.</p>
+<p>With virtual machines, you install each application into its own machine. They never know they’re running on the same hardware, so the software conflicts disappear.</p>
+<p>But this created a new inefficiency: every virtual machine needs its own complete operating system. Operating systems consume significant resources, memory, storage, processing power. The more operating systems you’re running, the less you have available for actual useful work.</p>
+<h2>Containers: The More Efficient Slice</h2>
+<p>This is where containers emerged.</p>
+<p>Imagine you could take an application, compress it into a single file with everything it needs, and just run that file. Because everything is self-contained, it can’t interfere with anything else. One container can have version 1 of a database, another can have version 2, but because they’re isolated in their own packages, they can’t see each other.</p>
+<p>The crucial difference: containers share the same operating system. Instead of running ten operating systems to support ten applications, you run one operating system and ten containers. You get the isolation benefits of virtual machines with far less overhead.</p>
+<p>Containers also make cleanup simple. When you’re done with an application, you delete the container, and nothing is left behind. No configuration files scattered across the system, no forgotten dependencies—just remove the container, and it’s gone.</p>
+<h2>Spot Instances: The Exception Worth Knowing</h2>
+<p>Knowing that AWS uses virtual machines? Honestly, that doesn’t change much for you. It’s happening behind the scenes, and you’ll probably never think about it.</p>
+<p>Except for one type: spot instances.</p>
+<p>AWS sells virtual machines at set prices. To make cloud computing attractive, they need instant availability, which means they always maintain more capacity than they have customers. At AWS’s scale, with hundreds of thousands of machines, that excess capacity gets expensive.</p>
+<p>Their solution: offer you a steep discount - up to 80% off - if you’re willing to accept that your machine might be shut down at any point. You get a two-minute warning before it’s taken away.</p>
+<p>What’s the point of that? As long as you plan for it, it’s a powerful way to save money.</p>
+<p>I use spot instances as development machines. The standard cost for the size I use is $80 a month. If I’m careful about turning it off when not in use, that drops to around $30. But with spot instances, that easily comes down to $10-15 a month. For the size you’ll likely use, that will easily be below $5. </p>
+<p>By spending a few hours working with AI to automate backup, restore, startup, and shutdown, I get a clean machine whenever I need it that automatically shuts down when I’m not using it. While theoretically I should get two-minute warnings before shutdown, I can’t remember ever receiving one. In practice, it works exactly like the full-price version, but at a fraction of the cost.</p>
+<h2>Why This Matters for You</h2>
+<p>Containers will become useful tools. They let you test software without installing it permanently on your machine. Want to see what your website looks like in a specific version of a browser? Run it in a container. Need to test if your code works with a different database? Spin up a container with that database, test it, then delete the container when you’re done.</p>
+<p>The pattern you’ll see repeatedly: containers give you clean, temporary environments for trying things out. They’re especially helpful when you’re working with AI to build something. You can experiment freely, knowing that nothing you do will mess up your main system.</p>
+<hr />
+    </article>
+    <section>
+        <h3>Article Context</h3>
+<p>This article is part of a series designed to help non-technical users learn how to use AI coding agents with only a tablet.</p>
+<p>Readers will gradually build practical understanding by setting up an AWS EC2 instance, connecting through Tailscale, and learning to use AI as a translator between complex systems—AWS, coding, and other technical domains they encounter while developing their own projects and ideas.</p>
+<p>Assume this may be the reader's first experience with technical material. Respond accordingly.</p>
+<h3>Your Role</h3>
+<p>You are a translator and guide.</p>
+<p>Your purpose is to help the user understand the article and explore related ideas in plain, accessible language.</p>
+<p>Be conversational and friendly. Avoid jargon unless it's explained simply.</p>
+<p>Keep your responses short, relevant, and connected to both the article and the broader learning goal.</p>
+<p>Respect the user's cognitive load—avoid dense walls of text or unnecessary technical depth.</p>
+<h4>Response Behavior</h4>
+<p>Once you have read and understood this article, begin by asking the user:</p>
+<blockquote>
+<p>"Is there a particular section or concept you'd like me to explain in more detail?"</p>
+</blockquote>
+<p>Then guide them through their chosen topic in a way that reinforces confidence and curiosity.</p>
+    </section>
+</body>
+</html>

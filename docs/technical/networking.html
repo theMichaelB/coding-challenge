@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #fff;
+        }
+
+        article {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #2a2a2a;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #2a2a2a;
+        }
+
+        p {
+            margin: 1rem 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #e0e0e0;
+            margin: 1.5rem 0;
+            padding-left: 1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        section {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        section h3 {
+            margin-top: 0;
+            color: #1a1a1a;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+        <article>
+        <p>There’s a companion article for this piece, not for you to study directly, but for your AI companion to read. It gives the AI the background and context it needs to help you explore the ideas here more deeply. If you’re curious, you can absolutely read it, but it’s mainly there so your AI understands the shape, intent, and learning approach behind this series.</p>
+<p>To get started, copy the following message and share it with your AI assistant:</p>
+<pre><code class="language-plaintext">http://www.pkms.dev.s3-website-us-east-1.amazonaws.com/networking/basics/ - I am reading an article described in this link, please read the content so you can assist me with understanding the topics more thoroughly. 
+</code></pre>
+<h3>Section 1: The Connected World</h3>
+<p>A fact that surprises most non-technical people is that the wire bringing the internet into your home is, through a broad collection of devices, and corporate entities, physically connected to every computer on the internet. In much the same way your house is connected to every other house in the country by roads, your home connection is part of a vast global network. Every website you visit, every WhatsApp message you send, every post you like, each of those interactions travels along that chain of copper and glass, from your wall socket all the way to a server on the other side of the planet.</p>
+<h3>Section 2: Every House Needs an Address</h3>
+<p>Just like your house has an address, so does your computer, and just like you can navigate to any other house by using its address, computers have something similar, but a computers address - An IP (Internet Protocol) address - provides an address for every computer around the world. </p>
+<p>To put the scale of the internet into perspective, here’s how IP addresses work. An IP address is made of four sets of numbers, from 0 to 255, seperated by a dot. That looks something like this 1.0.255.10 this roughly translates to around 4.3 billion addresses. For a few years now, there has been a lot of effort put into using these addresses more efficiently, because there aren’t enough left. There is a new version of how IP addresses work, called IPv6 - we’re currently on IPV4 (nobody knows what happened to IPV5) - But nobody likes IPv6 very much, so mostly people try to ignore it. </p>
+<h3>Section 3: The Internet’s Phone Book</h3>
+<p>But if every time you wanted to go to facebook, you had to type 163.70.151.35, or Amazon, 205.251.242.103, or gmail 142.251.30.19. You can see how that would very quickly get tedious. So the internet has a phone book, called DNS (Domain name service) and whenever you want to check your email your device checks with DNS to translate the name into an address, and then goes and has a conversation with that address. </p>
+<p>When you start a conversation with gmail’s address, the server needs to know whether you want to see the webpage or send an email. It does this with a small addition to the address. For email, your device would send a message to 142.251.30.19:25, for a webpage it would go to 142.251.30.19:443. The part after the : is called the port number and is the way that devices and computers know that they’re having the same conversation, in the same language. </p>
+<h3>Section 4: Sharing an Address</h3>
+<p>Imagine for a second that street addresses were a limited resource, and as a result were something you needed to pay for. So you and a group of friends say “hey, we all need an address, but rather than all paying for one individually, we could just get one and share it”. This is one of the strategies used to preserve IPv4 addresses. For the devices and computers in your home, each one needs an IP address, in order to talk to your internet router (and each other). So your router has a single Public IP address on the internet, and creates Private IP addresses for everything attached to it. This means that your TV can connect to the internet but anyone on the internet can’t connect to it. This is called NAT (Network Address Translation) it not only preserves address space, but also keeps your devices protected because they can’t be directly accessed from the internet. </p>
+<h3>Section 5: The Shape of Things</h3>
+<p>And that is the start of how things connect to each other over the internet. It is very simplified (and some parts are outright wrong - but we’ll correct those later). It is an incredibly complex topic, and this is about showing you the shape of things, rather than a tedious, long winded definition. </p>
+<p>If there are any parts you’re unsure about, or don’t understand, or if you just want to find out where I lied (so you can flame me in comments), use the prompt at the top of the page and go and discuss the article with your favourite AI.</p>
+    </article>
+    <section>
+        <h3>Article Context</h3>
+<p>This article is part of a series designed to help non-technical users learn how to use AI coding agents with only a tablet.</p>
+<p>Readers will gradually build practical understanding by setting up an AWS EC2 instance, connecting through Tailscale, and learning to use AI as a translator between complex systems—AWS, coding, and other technical domains they encounter while developing their own projects and ideas.</p>
+<p>Assume this may be the reader's first experience with technical material. Respond accordingly.</p>
+<h3>Your Role</h3>
+<p>You are a translator and guide.</p>
+<p>Your purpose is to help the user understand the article and explore related ideas in plain, accessible language.</p>
+<p>Be conversational and friendly. Avoid jargon unless it's explained simply.</p>
+<p>Keep your responses short, relevant, and connected to both the article and the broader learning goal.</p>
+<p>Respect the user's cognitive load—avoid dense walls of text or unnecessary technical depth.</p>
+<h4>Response Behavior</h4>
+<p>Once you have read and understood this article, begin by asking the user:</p>
+<blockquote>
+<p>"Is there a particular section or concept you'd like me to explain in more detail?"</p>
+</blockquote>
+<p>Then guide them through their chosen topic in a way that reinforces confidence and curiosity.</p>
+    </section>
+</body>
+</html>
